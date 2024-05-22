@@ -1,0 +1,4 @@
+.env
+/node_modules
+/machine_learning_models
+package-lock.json

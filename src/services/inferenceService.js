@@ -1,4 +1,5 @@
 const tf = require("@tensorflow/tfjs-node");
+const InputError = require("../exceptions/InputError");
 
 async function predictClassification(model, image) {
   try {
@@ -19,7 +20,7 @@ async function predictClassification(model, image) {
 
     let classResult;
 
-    if (probabilities[0] > 0.5) {
+    if (score[0] > 0.5) {
       classResult = 0;
     } else {
       classResult = 1;
@@ -27,6 +28,7 @@ async function predictClassification(model, image) {
 
     const label = classes[classResult];
 
+    let result, suggestion;
     if (label === "Cancer") {
       result = "Cancer";
       suggestion = "Segera periksa ke dokter!";

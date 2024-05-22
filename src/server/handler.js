@@ -1,6 +1,7 @@
 const predictClassification = require("../services/inferenceService");
 const storeData = require("../services/storeData");
 const getHistories = require("../services/getHistories");
+const crypto = require("crypto");
 
 async function predictionHandler(request, h) {
   const { image } = request.payload;
@@ -41,3 +42,4 @@ async function getPredictionHandler(request, h) {
 }
 
 module.exports = { predictionHandler, getPredictionHandler };
+// module.exports = { getPredictionHandler };
